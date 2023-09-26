@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+
 using namespace std;
 
 // "struct" is just like "class" except that everything is public by default
@@ -17,6 +18,22 @@ struct Item {
 	void print() const;
 	bool operator<(const Item &) const;
 };
+
+Item::Item(value, weight) {
+    Item* value = value;
+    Item* weight = weight;
+    // i dont think this is right
+ }
+
+
+double Item::ratio() const {
+    return (Item->value / Item->weight);
+}
+
+void print() const {
+    cout << Item->name << " " << Item->value << " " << Item->weight << endl; //idk what it's supposed to print
+
+}
 
 // Compares one item's ratio to another
 bool Item::operator<(const Item & right) const {
