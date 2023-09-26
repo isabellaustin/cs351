@@ -12,6 +12,7 @@ struct Item {
 	string name;
 	double value;
 	double weight;
+    // double ratio; //do we add this?
 	
 	Item (double, double);	
 	double ratio() const;
@@ -27,15 +28,19 @@ Item::Item(value, weight) {
 
 
 double Item::ratio() const {
+    // ratio = (Item->value / Item->weight);
     return (Item->value / Item->weight);
 }
 
 void print() const {
     cout << Item->name << " " << Item->value << " " << Item->weight << endl; //idk what it's supposed to print
-
 }
 
 // Compares one item's ratio to another
+// Item & right: memory location of pointer called right
 bool Item::operator<(const Item & right) const {
-    // Fill this in here!
+    // https://www.geeksforgeeks.org/c-program-for-the-fractional-knapsack-problem/ 
+    double r1 = (Item->value / Item->weight); //Item.ratio();
+    double r2 = (right->value / right->weight);
+    return r1 > r2;
 }
