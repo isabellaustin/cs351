@@ -1,4 +1,4 @@
-5
+5 15
 apple 12 2
 banana 20 4
 orange 14 7

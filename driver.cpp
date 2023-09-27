@@ -72,6 +72,10 @@ int main(){
     cout << totalW << endl;
     cout << totalV << endl;
 
+    string filename  = "knapsackRun" + to_strin + ".txt"
+    ofstream file;
+    file.open(filename);
+
     for(int i = 0; i < sackItems; i++){
         Item* sack_item = knapsack.dequeue();
         sack_item->print();
