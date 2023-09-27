@@ -14,33 +14,33 @@ struct Item {
 	double weight;
     // double ratio; //do we add this?
 	
-	Item (double, double);	
+	Item(double, double);	
 	double ratio() const;
 	void print() const;
 	bool operator<(const Item &) const;
 };
 
-Item::Item(value, weight) {
-    Item* value = value;
-    Item* weight = weight;
-    // i dont think this is right
+Item::Item(double value_, double weight_) {
+    value = value_;
+    weight = weight_;
  }
 
 
 double Item::ratio() const {
-    // ratio = (Item->value / Item->weight);
-    return (Item->value / Item->weight);
+    return (value / weight);
 }
 
-void print() const {
-    cout << Item->name << " " << Item->value << " " << Item->weight << endl; //idk what it's supposed to print
+void Item::print() const {
+    cout << name << " " << value << " " << weight << endl;
 }
 
 // Compares one item's ratio to another
 // Item & right: memory location of pointer called right
 bool Item::operator<(const Item & right) const {
+    const Item* compare = &right;
     // https://www.geeksforgeeks.org/c-program-for-the-fractional-knapsack-problem/ 
-    double r1 = (Item->value / Item->weight); //Item.ratio();
-    double r2 = (right->value / right->weight);
+    // https://www.geeksforgeeks.org/difference-between-constant-pointer-pointers-to-constant-and-constant-pointers-to-constants/ 
+    double r1 = (value / weight); //Item.ratio();
+    double r2 = (compare->value / compare->weight);
     return r1 > r2;
 }

@@ -1,3 +1,5 @@
+// BY: Isabell Austin, Noah Baker, and Anna Vadella
+
 #include <fstream>
 #include <cstdlib>
 #include <ctime>
@@ -12,18 +14,19 @@ int main()
 
     srand(time(NULL)); 
 
-    ofstream file;
+    ifstream file;
     file.open("test.txt");
 
-    while(n <= 0 || sackCap <= 0){
-        cout << "Number of Items: ";
-        cin >> n; //10, 20, 100, 1000, 10000
-        cout << "Knapsack Capacity: ";
-        cin >> sackCap;
-    }
+    // while(n <= 0 || sackCap <= 0){
+    //     cout << "Number of Items: ";
+    //     cin >> n; //10, 20, 100, 1000, 10000
+    //     cout << "Knapsack Capacity: ";
+    //     cin >> sackCap;
+    // }
     
     file << n << " " << sackCap << "\n";
 
+    cout << "Items in the Solution: ";
     for(int i = 0; i < n; i++)
     {   
         itemN = i++; //incrementing item number
