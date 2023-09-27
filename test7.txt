@@ -6,3 +6,5 @@ strawberry 100 14
 tangerine 10 5
 puppy 25 12
 grape 30 7
+
+//optimal solution is orange and kitchensink
