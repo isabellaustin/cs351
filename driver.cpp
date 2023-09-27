@@ -8,13 +8,15 @@
 using namespace std;
 
 /* pq.h functions:
-- class pq
-    - constructor, empty(), enqueue, dequeue, print() [preorder traversal]
-- class node
-    - constructor
+    - class pq
+        - constructor, empty(), enqueue, dequeue, print() [preorder traversal]
+    - class node
+        - constructor
 */
 
 int main(){
+    typedef pq<Item*> priorityQ;
+    typedef pq<Item*> knapsackQ;
 
     ifstream file;
     file.open("test2.txt"); 
@@ -22,9 +24,7 @@ int main(){
     int n, capacity = 0;
     file >> n >> capacity;
 
-    //Priority Queue
-    typedef pq<Item*> priorityQ;
-    typedef pq<Item*> knapsackQ;
+    // Priority Queue
     priorityQ pq;
 
     string name;
@@ -33,11 +33,13 @@ int main(){
 
     for(int i = 0; i < n; i++){
         file >> name >> value >> weight;
-
+        double ratio = value/weight;
         Item* queue_item = new Item(value, weight);
         queue_item->name = name;
+        // queue_item->print();
+        cout << queue_item->ratio() << endl;
 
-        pq.enqueue(queue_item); //compare func is wrong
+        pq.enqueue(queue_item); //compare happens in enqueue; compare func is wrong (?)
 
     }
     file.close();
@@ -45,39 +47,35 @@ int main(){
 
     //=============================================================
 
+    // Knapsack; Greedy Algorithm
     int totalW = 0; //total weight
     int sackItems = 0; //final num of items in the knapsack
     int totalV = 0; //total value
-    //Knapsack; greedy algorithm
-    // pq<Item*> knapsack;
+
     knapsackQ knapsack;
 
     //for loop for knapsack;
     for(int i = 0; i < n; i++){
-        Item* retrieved_item = pq.dequeue();
-        // retrieved_item->print();
+        Item* chosen_item = pq.dequeue();
+        // chosen_item->print();
 
-        if (totalW + retrieved_item->weight < capacity){
-            knapsack.enqueue(retrieved_item);
-            totalV = totalV + retrieved_item->value;
-            totalW = totalW + retrieved_item->weight;
+        if(totalW + chosen_item->weight <= capacity){
+            knapsack.enqueue(chosen_item);
+            totalV = totalV + chosen_item->value;
+            totalW = totalW + chosen_item->weight;
             sackItems++;
-            // retrieved_item->print();
+            // chosen_item->print();
         }
     }
-    // cout << sackItems << endl;
-    // cout << totalW << endl;
-    // cout << totalV << endl;
 
-    string filename  = "knapsackRun + to_string(sackItems) + ".txt"; 
+    string filename  = "knapsackRunOG.txt"; // + to_string(sackItems) + ".txt"; 
     ofstream outfile;
     outfile.open(filename);
 
     outfile << n << "\n";
     outfile << totalW << "\n";
-    outfile << totalV << "\n";
-    outfile << "\n" << "Items in the Solution:" << "\n";
-    // outfile << 
+    outfile << totalV << "\n\n";
+    outfile << "Items in the Solution:" << "\n";
 
     for(int i = 0; i < sackItems; i++){
         Item* sack_item = knapsack.dequeue();
