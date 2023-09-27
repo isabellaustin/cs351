@@ -23,7 +23,9 @@ int main(){
     file >> n >> capacity;
 
     //Priority Queue
-    pq<Item*> priorityQ;
+    typedef pq<Item*> priorityQ;
+    typedef pq<Item*> knapsackQ;
+    priorityQ pq;
 
     string name;
     double value = 0; //pesos
@@ -35,16 +37,11 @@ int main(){
         Item* queue_item = new Item(value, weight);
         queue_item->name = name;
 
-        priorityQ.enqueue(queue_item);
-        // queue_item->print();
+        pq.enqueue(queue_item); //compare func is wrong
 
-        //have to sort the items by ratio somewhere
-        // queue_item->operator<(queue_item); //idfk how this work x(
-            // node<Item*> * right = new node<Item*>(queue_item); //maybe using this, but i dont think so
     }
-
-
     file.close();
+    pq.print();
 
     //=============================================================
 
@@ -52,11 +49,12 @@ int main(){
     int sackItems = 0; //final num of items in the knapsack
     int totalV = 0; //total value
     //Knapsack; greedy algorithm
-    pq<Item*> knapsack;
+    // pq<Item*> knapsack;
+    knapsackQ knapsack;
 
     //for loop for knapsack;
     for(int i = 0; i < n; i++){
-        Item* retrieved_item = priorityQ.dequeue();
+        Item* retrieved_item = pq.dequeue();
         // retrieved_item->print();
 
         if (totalW + retrieved_item->weight < capacity){
@@ -67,17 +65,19 @@ int main(){
             // retrieved_item->print();
         }
     }
+    // cout << sackItems << endl;
+    // cout << totalW << endl;
+    // cout << totalV << endl;
 
-    //=============================================================
-
-    string filename  = "knapsackRun" + to_string(sackItems) + ".txt"; 
+    string filename  = "knapsackRun + to_string(sackItems) + ".txt"; 
     ofstream outfile;
     outfile.open(filename);
 
-    outfile << sackItems << "\n";
+    outfile << n << "\n";
     outfile << totalW << "\n";
     outfile << totalV << "\n";
     outfile << "\n" << "Items in the Solution:" << "\n";
+    // outfile << 
 
     for(int i = 0; i < sackItems; i++){
         Item* sack_item = knapsack.dequeue();

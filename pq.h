@@ -1,3 +1,6 @@
+#include<iostream>
+#include<fstream>
+using namespace std;
 template <typename T>
 class node {
 	public:
@@ -106,7 +109,7 @@ T pq<T>::dequeue() {
 template <typename T> 
 void pq<T>::print(node<T> * p) const {
 	if (p != NULL) {
-		p->data.print();
+		p->data->print();
 		print(p->left);
 		print(p->right);
 	}

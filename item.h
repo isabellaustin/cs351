@@ -12,7 +12,6 @@ struct Item {
 	string name;
 	double value;
 	double weight;
-    // double ratio; //do we add this?
 	
 	Item(double, double);	
 	double ratio() const;
@@ -31,18 +30,16 @@ double Item::ratio() const {
 }
 
 void Item::print() const {
-    cout << name << " " << value << " " << weight << endl;
+    cout << name << " " << value << " " << weight << endl; //idk what it's supposed to print
 }
 
 // Compares one item's ratio to another
 // Item & right: memory location of pointer called right
-
-// https://www.sololearn.com/Discuss/3069532/bool-operatorconst-point-other-const 
 bool Item::operator<(const Item & right) const {
-    const Item* compare = &right;
     // https://www.geeksforgeeks.org/c-program-for-the-fractional-knapsack-problem/ 
     // https://www.geeksforgeeks.org/difference-between-constant-pointer-pointers-to-constant-and-constant-pointers-to-constants/ 
+
     double r1 = (value / weight); //Item.ratio();
-    double r2 = (compare->value / compare->weight);
-    return r1 > r2;
+    double r2 = (right.value / right.weight);
+    return r2 < r1;
 }
