@@ -68,17 +68,21 @@ int main(){
         }
     }
 
-    cout << sackItems << endl;
-    cout << totalW << endl;
-    cout << totalV << endl;
+    //=============================================================
 
-    string filename  = "knapsackRun" + to_strin + ".txt"
-    ofstream file;
-    file.open(filename);
+    string filename  = "knapsackRun" + to_string(sackItems) + ".txt"; 
+    ofstream outfile;
+    outfile.open(filename);
+
+    outfile << sackItems << "\n";
+    outfile << totalW << "\n";
+    outfile << totalV << "\n";
+    outfile << "\n" << "Items in the Solution:" << "\n";
 
     for(int i = 0; i < sackItems; i++){
         Item* sack_item = knapsack.dequeue();
-        sack_item->print();
+        outfile << sack_item->name << " " << sack_item->value << " " << sack_item->weight << "\n";
+        // sack_item->print();
     }
 
     return 0;
