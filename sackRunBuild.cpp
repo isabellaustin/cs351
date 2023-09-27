@@ -9,27 +9,26 @@ using namespace std;
 
 int main()
 {
-    int n = 0, sackCap = 0, itemN, itemV, itemW;  
+    int n = 0, sackCap = 0, itemV, itemW;  
+    char itemN;
     // n: # of items, sackCap: sack capacity, itemN: name, itemV: value, itemW: weight
 
     srand(time(NULL)); 
 
-    ifstream file;
-    file.open("test.txt");
+    ofstream file;
+    file.open("knapsackRun20.txt");
 
-    // while(n <= 0 || sackCap <= 0){
-    //     cout << "Number of Items: ";
-    //     cin >> n; //10, 20, 100, 1000, 10000
-    //     cout << "Knapsack Capacity: ";
-    //     cin >> sackCap;
-    // }
+    cout << "Number of Items: ";
+    cin >> n; //10, 20, 100, 1000, 10000
+    cout << "Knapsack Capacity: ";
+    cin >> sackCap;
     
     file << n << " " << sackCap << "\n";
+    file << "Items in the Solution:" << "\n"; //idk if we actually need this, but it was in the handout; ask Gup
 
-    cout << "Items in the Solution: ";
     for(int i = 0; i < n; i++)
-    {   
-        itemN = i++; //incrementing item number
+    {   char letter[] = "abcdefghijklmnopqrstuvwxyz";
+        itemN = letter[i]; //incrementing item number
         itemV = rand()%(176) + 25; //randomized item values between 25 and 200
         itemW = rand()%(3*n) + 1; //randomized item weights between 1 and 3 * n
         file << itemN << " " << itemV << " " << itemW << endl; 

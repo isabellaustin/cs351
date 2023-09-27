@@ -1,1 +1,22 @@
-one of the deliverables
+20 75
+Items in the Solution:
+a 182 16
+b 149 47
+c 84 1
+d 159 58
+e 150 53
+f 26 15
+g 175 8
+h 30 4
+i 40 40
+j 63 51
+k 28 29
+l 151 43
+m 41 6
+n 43 5
+o 100 43
+p 179 13
+q 166 59
+r 187 29
+s 128 22
+t 198 21

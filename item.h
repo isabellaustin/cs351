@@ -36,6 +36,8 @@ void Item::print() const {
 
 // Compares one item's ratio to another
 // Item & right: memory location of pointer called right
+
+// https://www.sololearn.com/Discuss/3069532/bool-operatorconst-point-other-const 
 bool Item::operator<(const Item & right) const {
     const Item* compare = &right;
     // https://www.geeksforgeeks.org/c-program-for-the-fractional-knapsack-problem/ 
