@@ -10,7 +10,11 @@ item.h:
 
 driver.cpp: Greedy algorithm program for 0-1 knapsack (email to Gupta)
 
+jouleTest10.txt: text file input for knapsackRun10.txt
+
 knapsackRun10.txt: sample run with 10 items
+
+jouleTest20.txt: text file input for knapsackRun20.txt
 
 knapsackRun20.txt: sample run with 20 items
 

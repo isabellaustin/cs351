@@ -62,12 +62,12 @@ int main(){
     ofstream outfile;
     outfile.open(filename);
 
-    outfile << n << "\n";
+    outfile << sackItems << "\n";
     outfile << totalW << "\n";
     outfile << totalV << "\n\n";
     outfile << "Items in the Solution:" << "\n";
 
-    Item sackArray[n];
+    Item sackArray[sackItems];
     for(int i = 0; i < sackItems; i++){
         sackArray[i] = knapsack.dequeue();
         outfile << sackArray[i].name << " " << sackArray[i].value << " " << sackArray[i].weight << "\n";
