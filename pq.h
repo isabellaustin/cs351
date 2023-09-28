@@ -20,6 +20,7 @@ class pq {
 		node<T> * root;
 		
 	public:
+		// node<T> * root;
 		pq() { root = NULL; }
 		bool empty() const;
 		void enqueue (T);
@@ -43,6 +44,7 @@ void pq<T>::enqueue(T input) {
 
 	node<T> * currNode = root;
 	node<T> * parent = NULL;
+
 	while (currNode != NULL) {
 		parent = currNode;
 		if (currNode->data < inputnode->data)
@@ -50,6 +52,7 @@ void pq<T>::enqueue(T input) {
 		else
 			currNode = currNode->left;
 	}
+
 	
 	// parent now has the location where the insertion needs to take place
 	if (parent->data < inputnode->data)
@@ -57,6 +60,7 @@ void pq<T>::enqueue(T input) {
 	else
 		parent->left = inputnode;
 	
+
 	return;
 } // end enqueue
 
@@ -109,7 +113,7 @@ T pq<T>::dequeue() {
 template <typename T> 
 void pq<T>::print(node<T> * p) const {
 	if (p != NULL) {
-		p->data->print();
+		p->data.print();
 		print(p->left);
 		print(p->right);
 	}
