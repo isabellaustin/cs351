@@ -33,6 +33,7 @@ item-2-name item-2-pesos item-2-weight
 ...
 
 
+
 The format of the output files for driver.cpp is shown below:
 
 number-of-items-in-solution
