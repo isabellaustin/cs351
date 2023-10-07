@@ -21,11 +21,24 @@ knapsackRun20.txt: sample run with 20 items
 # How to Run (Format & Instructions) <!-- (digital) -->
 
 ## Format:
-itemArray: array of items to be enqueued into the main priority queue pq
+The format of the output files for fileBuilder.cpp is shown below:
+<number-of-items-in-solution> <knapsack-capacity>
 
-chosenArray: array of items chosen to be in the knapsack (dequeued from priority queue pq and enqueued into the knapsack priority queue knapsack)
+<item-1-name> <item-1-pesos> <item-1-weight>
+<item-2-name> <item-2-pesos> <item-2-weight>
+....
 
-sackArray: array of items in the priority queue knapsack
+
+The format of the output files for driver.cpp is shown below:
+<number-of-items-in-solution>
+<total-weight-of-items-in-solution>
+<total-profit-of-items-in-solution>
+
+Items in the Solution:
+<item-1-name> <item-1-pesos> <item-1-weight>
+<item-2-name> <item-2-pesos> <item-2-weight>
+....
+
 
 ## Instructions:
 To generate text files for testing:
