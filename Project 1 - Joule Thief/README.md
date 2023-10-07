@@ -50,7 +50,7 @@ item-2-name item-2-pesos item-2-weight
 
 
 ## Instructions:
-To generate text files for testing:
+### To generate text files for testing:
 ```bash
 g++ fileBuilder.cpp
 a.out
@@ -59,7 +59,7 @@ The file output will be named jouleTestN.txt where N is the number of desired it
 For example, for a 20 item test, the file will be named jouleTest20.txt
 
 
-To generate final knapsack run output:
+### To generate final knapsack run output:
 ```bash
 g++ driver.cpp
 a.out
