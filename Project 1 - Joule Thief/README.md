@@ -33,9 +33,15 @@ To generate text files for testing:
 g++ fileBuilder.cpp
 a.out
 ```
+The file output will be named jouleTestN.txt where N is the number of desired items.
+For example, for a 20 item test, the file will be named jouleTest20.txt
+
 
 To generate final knapsack run output:
 ```bash
 g++ driver.cpp
 a.out
 ```
+You will have to edit line 16 for your desired test file name.
+The file output will be named knapsackRuntN.txt where N is the number of desired items.
+For example, for a 20 item test, the file will be named knapsackRun20.txt
