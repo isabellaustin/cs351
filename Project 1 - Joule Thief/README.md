@@ -39,6 +39,7 @@ total-weight-of-items-in-solution
 
 total-profit-of-items-in-solution
 
+ 
 
 Items in the Solution:
 
