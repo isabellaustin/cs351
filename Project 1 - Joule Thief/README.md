@@ -44,4 +44,4 @@ a.out
 ```
 You will have to edit line 16 for your desired test file name.
 The file output will be named knapsackRuntN.txt where N is the number of desired items.
-For example, for a 20 item test, the file will be named knapsackRun20.txt
+For example, for a 20 item run, the file will be named knapsackRun20.txt.
