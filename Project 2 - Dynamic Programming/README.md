@@ -8,7 +8,7 @@ item.h: our implementation of provided base code
 
 fileBuilder.cpp: program to generate text files
 
-driver.cpp: greedy algorithm program for 0-1 knapsack
+driver.cpp: dynamic programming approach to 0-1 knapsack
 
 jouleTest10.txt: text file input for knapsackRun10.txt
 
