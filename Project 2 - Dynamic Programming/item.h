@@ -6,43 +6,39 @@
 
 using namespace std;
 
-struct item 
-{
+struct Item {
 	string name;
 	double value;
 	double weight;
 
-	item (double, double);
-	item();	
+	Item();
+	Item(double, double);	
 	double ratio() const;
 	void print() const;
-	bool operator<(const item &) const;
+	bool operator<(const Item &) const;
 };
 
-item::item(double x, double y)
-{
-    value = x;
-    weight = y;
+Item::Item(double value_, double weight_) {
+    value = value_;
+    weight = weight_;
 }
 
-item::item()
-{
+Item::Item() {
 	name = " ";
 	value = 0;
 	weight = 0;
 }
 
-double item::ratio() const
-{
-    return value/weight;
+double Item::ratio() const {
+    return (value / weight);
 }
 
-void item::print() const
-{
-    cout << name << " " << value << " " << weight << endl;
+void Item::print() const {
+    cout << name << " " << value << " " << weight << " " << ratio() << endl;
 }
 
-bool item::operator<(const item & right) const 
-{
-    return ratio() < right.ratio(); 
+bool Item::operator<(const Item & right) const {
+	double r1 = ratio();
+    double r2 = right.ratio();
+    return r1 < r2; 
 }
