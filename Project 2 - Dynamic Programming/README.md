@@ -1,7 +1,7 @@
 # Project 2: Joule Thief - Dynamic Programming (CS351 - Algorithms)
 BY: Isabell Austin, Noah Baker, and Anna Vadella
 
-DUE: Thursday, November 30th, 2023
+DUE: Friday, December 1s, 2023
 
 # Deliverables
 item.h: our implementation of provided base code

@@ -2,6 +2,7 @@
 #include<iostream>
 #include<fstream>
 #include "item.h"
+int count = 0;
 
 int max(int a, int b) {
     if(a >= b) {
@@ -17,6 +18,7 @@ int refine(int n, int W, Item * items, int ** matrix)
         return 0;
     }
 
+    count++;
     if(W < items[n-1].weight) {
         matrix[n][W] = refine(n-1, W, items, matrix);
         return matrix[n][W];
@@ -59,8 +61,7 @@ int main()
         itemObj.name = nameOfItem;
         ratio = itemObj.ratio();
         items[i] = itemObj;
-    }
-    
+    } 
     int ** matrix = new int * [numItems+1];
     
     // PHASE 1: Dynamic Approach for the 0-1 knapsack ---------------------------------------------------
@@ -99,7 +100,7 @@ int main()
         skipItem += knapsack[sackItems++].weight;
     }    
 
-    // PHASE 2: Reporting the Items ---------------------------------------------------
+    /** PHASE 2: Reporting the Items ---------------------------------------------------
     string outfilename  = "knapsackRun" + to_string(sackItems) + ".txt"; 
     ofstream outfile;
     outfile.open(outfilename);
@@ -112,8 +113,7 @@ int main()
     Item sackArray[sackItems];
     for(int i = 0; i < sackItems; i++){
         outfile << knapsack[i].name << " " << knapsack[i].value << " " << knapsack[i].weight << "\n";
-    }
-
+    } */
     // reset matrix values
     for(int i = 0; i < numItems+1; i++)
     {
@@ -133,8 +133,8 @@ int main()
 
     Item * knapRefined = new Item[numItems];
 
-    // select optimal solutions
-    for (int i=numItems; i > 0; i--)
+    // select optimal solutions; determine how many entires needed, then do computations starting with first row
+    for (int i = numItems; i > 0; i--)
     {
         if(matrix[i][capacity - skipItem] == matrix[i-1][capacity - skipItem])
         {
@@ -146,20 +146,21 @@ int main()
         skipItem += knapRefined[sackItems++].weight;
     } 
 
-    /** print results
-    cout << "\n";
-    cout << "Refinement of Dynamic Programming Approach for 0-1 Knapsack:" << "\n";
-    cout << "Total number of items in knapsack: " << sackItems << endl;
-    cout << "Knapsack capacity: " << capacity << " lbs" << endl;
-    cout << "Total weight: " << totalW<< " lbs" << endl;
-    cout << "Total profit: " << totalV << " pesos" << endl;
-    cout << "\n";
-    cout << "Items in the knapsack: "<<endl;
+    string outfilename  = "knapsackRun" + to_string(sackItems) + ".txt"; 
+    ofstream outfile;
+    outfile.open(outfilename);
+
+    outfile << sackItems << "\n";
+    outfile << totalW << "\n";
+    outfile << totalV << "\n";
+    // outfile << "Number of Calculated Matrix Entries:" << count << "\n\n";
+    outfile << "Items in the Solution:" << "\n";
+
 
     for(int i = 0; i < sackItems; i++)
     {
-        knapRefined[i].print();
-    } */
+        outfile << knapRefined[i].name << " " << knapRefined[i].value << " " << knapRefined[i].weight << "\n";
+    } 
 
     return 0;
 }

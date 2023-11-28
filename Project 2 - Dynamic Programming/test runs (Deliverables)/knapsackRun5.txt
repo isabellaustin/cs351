@@ -1,6 +1,7 @@
 5
 72
 535
+Number of Calculated Matrix Entries:1983
 
 Items in the Solution:
 q 43 16
