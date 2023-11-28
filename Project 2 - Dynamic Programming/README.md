@@ -12,11 +12,11 @@ driver.cpp: dynamic programming approach to 0-1 knapsack
 
 jouleTest10.txt: text file input for knapsackRun10.txt
 
-knapsackRun10.txt: sample run with 10 items
+knapsackRun3.txt: sample run with 10 items
 
 jouleTest20.txt: text file input for knapsackRun20.txt
 
-knapsackRun20.txt: sample run with 20 items
+knapsackRun5.txt: sample run with 20 items
 
 # How to Run (Format & Instructions)
 ## Format:

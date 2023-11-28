@@ -1,9 +1,0 @@
-25
-190
-
-Items in the Solution:
-kitchensink 140 20
-orange 50 5
-
-
-[made using text1.txt (example from project description)]
