@@ -13,6 +13,8 @@ int max(int a, int b) {
 
 int refine(int n, int W, Item * items, int ** matrix)
 {
+    count++;
+
     // base case
     if (n == 0 || W == 0) {
         return 0;
@@ -153,7 +155,7 @@ int main()
     outfile << sackItems << "\n";
     outfile << totalW << "\n";
     outfile << totalV << "\n";
-    // outfile << "Number of Calculated Matrix Entries:" << count << "\n\n";
+    outfile << "Number of Calculated Matrix Entries:" << count << "\n\n";
     outfile << "Items in the Solution:" << "\n";
 
 
