@@ -1,7 +1,7 @@
-# Project 3: Joule Thief - Backtracking (CS351 - Algorithms)
+# Project 4: Joule Thief - Branch and Bound (CS351 - Algorithms)
 BY: Isabell Austin, Noah Baker, and Anna Vadella
 
-DUE: Friday, December 15th, 2023
+DUE: Monday, December 18th, 2023
 
 # Deliverables
 item.h: our implementation of provided base code

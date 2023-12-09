@@ -89,10 +89,31 @@ int knapsack(int numItems, const Item * items, int capacity)
         {   pq.enqueue(v); }
     }
 
+
     // printing solution: 
     int numSacked(0);
     int totalW(0);
     int totalV(0);
+
+
+    // print optimal items from bestSet
+    cout <<"\nOptimal Knapsack Items: "<<endl;
+    for(int i=0; i<numItems;i++)
+    {
+        if(best[i] == true)
+        {
+            numSacked++;
+            // items[i].print();
+            cout << items[i].name << " " << items[i].value << " " << items[i].weight << endl;
+            totalWeight += items[i].weight;
+            totalValue += items[i].value;
+        }
+    }
+
+        // print knapsack data
+    cout<< "\nNumber of knapsack items: " << numSacked << endl;
+    cout<< "Total weight: " << totalWeight<< " lbs" << endl;
+    cout<< "Total profit: " << totalValue<< " pesos" << endl;
 
     return maxProfit;
 }
@@ -155,16 +176,15 @@ int main()
     outfile.open(outfilename);
 
     outfile <<"Optimal Knapsack Items: "<< "\n";
-
-    for(int i=0; i<numItems;i++)
-    {   
-        if(best[i] == true)
+    
+    for(int i3 = 0; i3 < numItems; i3++)
+    {
+        if(best[i3]==true)
         {
-            numSacked++;
-            // items[i].print();
-            cout << items[i+1].name << " " << items[i+1].value << " " << items[i+1].weight << endl;
-            totalW += items[i+1].weight;
-            totalV += items[i+1].value;
+            outfile << items[i3+1].name << " " << items[i3+1].value << " " << items[i3+1].weight << "\n";
+            totalW += items[i3+1].weight;
+            totalV += items[i3+1].value;
+            numSackItems++;
         }
     }
 
@@ -173,7 +193,14 @@ int main()
     outfile << "Total weight: " << totalW << " lbs" << "\n";
     outfile << "Total profit: " << totalV << " pesos" << "\n";
 */
+    
+    // for(int i = 0; i < numItems; i++)
+    // {
+    //     // outfile << items[i].name << " " << items[i].value << " " << items[i].weight << "\n";
+    //     cout << items[i].name << " " << items[i].value << " " << items[i].weight << endl;
+    // } 
 
+    
     int maximumProfit(0);
     maximumProfit = knapsack(numItems,items,capacity);
 

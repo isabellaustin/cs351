@@ -10,6 +10,8 @@ struct Item {
 	string name;
 	double value;
 	double weight;
+	int level;
+	float bound;
 
 	Item();
 	Item(double, double);	
@@ -27,6 +29,8 @@ Item::Item() {
 	name = " ";
 	value = 0;
 	weight = 0;
+	level = 0;
+	bound = 0;
 }
 
 double Item::ratio() const {
@@ -38,7 +42,8 @@ void Item::print() const {
 }
 
 bool Item::operator<(const Item & right) const {
-	double r1 = ratio();
-    double r2 = right.ratio();
-    return r1 < r2; 
+	return bound < right.bound;
+	// double r1 = ratio();
+    // double r2 = right.ratio();
+    // return r1 < r2; 
 }
