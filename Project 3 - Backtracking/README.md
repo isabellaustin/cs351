@@ -1,4 +1,4 @@
-# Project 2: Joule Thief - Backtracking (CS351 - Algorithms)
+# Project 3: Joule Thief - Backtracking (CS351 - Algorithms)
 BY: Isabell Austin, Noah Baker, and Anna Vadella
 
 DUE: Friday, December 15th, 2023
@@ -10,13 +10,13 @@ fileBuilder.cpp: program to generate text files
 
 driver.cpp: dynamic programming approach to 0-1 knapsack
 
-jouleTest10.txt: text file input for knapsackRun10.txt
+jouleTest50.txt: text file input for knapsackRun50.txt
 
-knapsackRun3.txt: sample run with 10 items
+knapsackRun50.txt: sample run with 50 items
 
-jouleTest20.txt: text file input for knapsackRun20.txt
+jouleTest100.txt: text file input for knapsackRun100.txt
 
-knapsackRun5.txt: sample run with 20 items
+knapsackRun100.txt: sample run with 100 items
 
 # How to Run (Format & Instructions)
 ## Format:
@@ -32,13 +32,6 @@ item-2-name item-2-pesos item-2-weight
 
 ### The format of the output files for driver.cpp is shown below:
 
-number-of-items-in-solution
-
-total-weight-of-items-in-solution
-
-total-profit-of-items-in-solution
-
-
 Items in the Solution:
 
 item-1-name item-1-pesos item-1-weight
@@ -46,6 +39,12 @@ item-1-name item-1-pesos item-1-weight
 item-2-name item-2-pesos item-2-weight
 
 ...
+
+number-of-items-in-solution
+
+total-weight-of-items-in-solution
+
+total-profit-of-items-in-solution
 
 ## Instructions:
 ### To generate text files for testing:

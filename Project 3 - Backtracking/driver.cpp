@@ -102,13 +102,13 @@ int main()
     // create item objects and read in their values from a file
     for(int i1=0; i1< numItems; i1++)
     {
-        fileToReadIn >> itemName >> value >> weight; 
-        Item itemObj = item(value, weight);
+        file >> itemName >> value >> weight; 
+        Item itemObj = Item(value, weight);
         itemObj.name = itemName;
         pq.enqueue(itemObj);
     }
 
-    fileToReadIn.close();
+    file.close();
 
     // sort items in PQ in nonincreasing order based on ratio
     for(int i2=1; i2<= numItems; i2++)
@@ -124,18 +124,23 @@ int main()
     int totalW(0);
     int totalV(0);
 
-    // print numItems and capcaity
-    cout<< "\nNumber of items considered: "<<numItems<<endl;
-    cout<<"Knapsack capactiy: "<< capacity<<endl;
+    string outfilename  = "knapsackRun" + to_string(numItems) + ".txt"; 
+    ofstream outfile;
+    outfile.open(outfilename);
+
+    // // print numItems and capcaity
+    // outfile << "Number of items considered: " << numItems << "\n";
+    // outfile << "Knapsack capactiy: " << capacity << "\n";
 
     // print optimal items from best
-    cout <<"\nOptimal Knapsack Items: "<<endl;
+    outfile <<"Optimal Knapsack Items: "<< "\n";
     
     for(int i3 = 0; i3 < numItems; i3++)
     {
         if(best[i3]==true)
         {
-            items[i3+1].print();
+            // items[i3+1].print();
+            outfile << items[i3+1].name << " " << items[i3+1].value << " " << items[i3+1].weight << "\n";
             totalW += items[i3+1].weight;
             totalV += items[i3+1].value;
             numSackItems++;
@@ -143,9 +148,9 @@ int main()
     }
 
     // print knapsack data
-    cout<< "\nNumber of knapsack items: " << numSackItems << endl;
-    cout<< "Total weight: " << totalW<< " lbs" << endl;
-    cout<< "Total profit: " << totalV<< " pesos" << endl;
+    outfile << "\nNumber of knapsack items: " << numSackItems << "\n";
+    outfile << "Total weight: " << totalW << " lbs" << "\n";
+    outfile << "Total profit: " << totalV << " pesos" << "\n";
 
     return 0;
 }
