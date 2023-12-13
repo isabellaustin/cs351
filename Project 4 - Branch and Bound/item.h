@@ -3,6 +3,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <set>
 
 using namespace std;
 
@@ -12,6 +13,7 @@ struct Item {
 	double weight;
 	int level;
 	float bound;
+	set<Item> sackItems;
 
 	Item();
 	Item(double, double);	
@@ -31,6 +33,7 @@ Item::Item() {
 	weight = 0;
 	level = 0;
 	bound = 0;
+	sackItems = {};
 }
 
 double Item::ratio() const {
